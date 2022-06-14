@@ -1,0 +1,18 @@
+/* You can add global styles to this file, and also import other style files */
+// @import "styles/main";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@font-face {
+  font-family: "Karla";
+  src: local("Karla"),
+    url(./assets/fonts/Karla/Karla-VariableFont_wght.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Kadwa";
+  src: local("Kadwa"),
+    url(./assets/fonts/Kadwa/Kadwa-Regular.ttf) format("truetype");
+}

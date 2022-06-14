@@ -1,0 +1,233 @@
+[
+    {
+        "id": "reno",
+        "category": "artwork",
+        "tags": ["art", "away"],
+        "auctions": {
+          "auctionId": "807640",
+          "cancelled": false, "chain": "bsc", "currentBlock": "20651707", "endBlock": "20651707",
+          "endDate": "2022-06-29T23:00:00.000Z", "finished": false, "highestBid": "0.009",
+          "highestBidder": "0x0000000000000000000000000000000000000000", "id": 70, "minimumBid": "0.009",
+          "owner": "0x8B1aEEdd7B2c6eAE859F5Dcd4AF23b3d3E1e2fe0", "sellNowPrice": "0.3", "sellNowTriggered": false,
+          "startBlock": "19269307", "startDate": "2022-05-13T12:40:23.598Z", "started": true,
+          "tokenId": "304432"},
+        "owner": {
+            "id": "OGW",
+            "image": "./assets/img/card_holder.jpg",
+            "username": "Ndo"
+        },
+        "creator": {
+            "id": "Rew",
+            "image": "./assets/img/card_holder.jpg",
+            "username": "Ndo",
+            "collections": [],
+            "type": "Creator"
+        },
+        "featuredImage": {
+            "media": "./assets/img/card_holder.jpg",
+            "mediaType": 0
+        },
+        "isBidding": true,
+        "gallery": [{
+            "media": "./assets/img/card_holder.jpg",
+            "mediaType": 0
+        }],
+        "description": "Description",
+        "price": 23,
+        "currency": "ETH",
+        "dateIssued": "2021-11-11T14:01:08.000Z",
+        "hasActiveAuction": true,
+        "lastAuctionId": 155870,
+        "likes": 34,
+        "sold": false,
+        "name": "Beautyful",
+        "tokenId": 939141,
+        "symbol": "The nifty row",
+        "assetType": "digital",
+        "type": "Artwork"
+    },
+    {
+        "id": "reno",
+        "category": "artwork",
+        "tags": ["art", "away"],
+        "auctions": {
+          "auctionId": "807640",
+          "cancelled": false, "chain": "bsc", "currentBlock": "20651707", "endBlock": "20651707",
+          "endDate": "2022-06-29T23:00:00.000Z", "finished": false, "highestBid": "0.009",
+          "highestBidder": "0x0000000000000000000000000000000000000000", "id": 70, "minimumBid": "0.009",
+          "owner": "0x8B1aEEdd7B2c6eAE859F5Dcd4AF23b3d3E1e2fe0", "sellNowPrice": "0.3", "sellNowTriggered": false,
+          "startBlock": "19269307", "startDate": "2022-05-13T12:40:23.598Z", "started": true,
+          "tokenId": "304432"},
+        "owner": {
+            "id": "OGW",
+            "image": "./assets/img/card_holder.jpg",
+            "username": "Ndo"
+        },
+        "creator": {
+            "id": "Rew",
+            "image": "./assets/img/card_holder.jpg",
+            "username": "Ndo",
+            "collections": [],
+            "type": "Creator"
+        },
+        "featuredImage": {
+            "media": "./assets/img/card_holder.jpg",
+            "mediaType": 0
+        },
+        "isBidding": true,
+        "gallery": [{
+            "media": "./assets/img/card_holder.jpg",
+            "mediaType": 0
+        }],
+        "description": "Description",
+        "price": 23,
+        "currency": "ETH",
+        "dateIssued": "2021-11-11T14:01:08.000Z",
+        "lastAuctionId": 155870,
+        "likes": 34,
+        "sold": false,
+        "name": "Beautyful",
+        "tokenId": 939141,
+        "symbol": "Mine",
+        "assetType": "digital",
+        "type": "Artwork"
+    },
+    {
+        "id": "reno",
+        "category": "artwork",
+        "tags": ["art", "away"],
+        "auctions": {
+          "auctionId": "807640",
+          "cancelled": false, "chain": "bsc", "currentBlock": "20651707", "endBlock": "20651707",
+          "endDate": "2022-06-29T23:00:00.000Z", "finished": false, "highestBid": "0.009",
+          "highestBidder": "0x0000000000000000000000000000000000000000", "id": 70, "minimumBid": "0.009",
+          "owner": "0x8B1aEEdd7B2c6eAE859F5Dcd4AF23b3d3E1e2fe0", "sellNowPrice": "0.3", "sellNowTriggered": false,
+          "startBlock": "19269307", "startDate": "2022-05-13T12:40:23.598Z", "started": true,
+          "tokenId": "304432"},
+        "owner": {
+            "id": "OGW",
+            "image": "./assets/img/card_holder.jpg",
+            "username": "Ndo"
+        },
+        "creator": {
+            "id": "Rew",
+            "image": "./assets/img/card_holder.jpg",
+            "username": "Ndo",
+            "collections": [],
+            "type": "Creator"
+        },
+        "featuredImage": {
+            "media": "./assets/img/card_holder.jpg",
+            "mediaType": 0
+        },
+        "isBidding": true,
+        "gallery": [{
+            "media": "./assets/img/card_holder.jpg",
+            "mediaType": 0
+        }],
+        "description": "Description",
+        "price": 23,
+        "currency": "ETH",
+        "dateIssued": "2021-11-11T14:01:08.000Z",
+        "lastAuctionId": 155870,
+        "likes": 34,
+        "sold": false,
+        "name": "Beautyful",
+        "tokenId": 939141,
+        "symbol": "Mine",
+        "assetType": "digital",
+        "type": "Artwork"
+    },
+    {
+        "id": "reno",
+        "category": "artwork",
+        "tags": ["art", "away"],
+        "auctions": {
+          "auctionId": "807640",
+          "cancelled": false, "chain": "bsc", "currentBlock": "20651707", "endBlock": "20651707",
+          "endDate": "2022-06-29T23:00:00.000Z", "finished": false, "highestBid": "0.009",
+          "highestBidder": "0x0000000000000000000000000000000000000000", "id": 70, "minimumBid": "0.009",
+          "owner": "0x8B1aEEdd7B2c6eAE859F5Dcd4AF23b3d3E1e2fe0", "sellNowPrice": "0.3", "sellNowTriggered": false,
+          "startBlock": "19269307", "startDate": "2022-05-13T12:40:23.598Z", "started": true,
+          "tokenId": "304432"},
+        "owner": {
+            "id": "OGW",
+            "image": "./assets/img/card_holder.jpg",
+            "username": "Ndo"
+        },
+        "creator": {
+            "id": "Rew",
+            "image": "./assets/img/card_holder.jpg",
+            "username": "Ndo",
+            "collections": [],
+            "type": "Creator"
+        },
+        "featuredImage": {
+            "media": "./assets/img/card_holder.jpg",
+            "mediaType": 0
+        },
+        "isBidding": true,
+        "gallery": [{
+            "media": "./assets/img/card_holder.jpg",
+            "mediaType": 0
+        }],
+        "description": "Description",
+        "price": 23,
+        "currency": "ETH",
+        "dateIssued": "2021-11-11T14:01:08.000Z",
+        "lastAuctionId": 155870,
+        "likes": 34,
+        "sold": false,
+        "name": "Beautyful",
+        "tokenId": 939141,
+        "symbol": "Mine",
+        "assetType": "digital",
+        "type": "Artwork"
+    },
+    {
+        "id": "reno",
+        "category": "artwork",
+        "tags": ["art", "away"],
+        "auctions": {
+          "auctionId": "807640",
+          "cancelled": false, "chain": "bsc", "currentBlock": "20651707", "endBlock": "20651707",
+          "endDate": "2022-06-29T23:00:00.000Z", "finished": false, "highestBid": "0.009",
+          "highestBidder": "0x0000000000000000000000000000000000000000", "id": 70, "minimumBid": "0.009",
+          "owner": "0x8B1aEEdd7B2c6eAE859F5Dcd4AF23b3d3E1e2fe0", "sellNowPrice": "0.3", "sellNowTriggered": false,
+          "startBlock": "19269307", "startDate": "2022-05-13T12:40:23.598Z", "started": true,
+          "tokenId": "304432"},
+        "owner": {
+            "id": "OGW",
+            "image": "./assets/img/card_holder.jpg",
+            "username": "Ndo"
+        },
+        "creator": {
+            "id": "Rew",
+            "image": "./assets/img/card_holder.jpg",
+            "username": "Ndo",
+            "collections": [],
+            "type": "Creator"
+        },
+        "featuredImage": {
+            "media": "./assets/img/card_holder.jpg",
+            "mediaType": 0
+        },
+        "isBidding": true,
+        "gallery": [{
+            "media": "./assets/img/card_holder.jpg",
+            "mediaType": 0
+        }],
+        "description": "Description",
+        "price": 23,
+        "currency": "ETH",
+        "dateIssued": "2021-11-11T14:01:08.000Z",
+        "lastAuctionId": 155870,
+        "likes": 34,
+        "sold": false,
+        "name": "Beautyful",
+        "tokenId": 939141,
+        "symbol": "Mine",
+        "assetType": "digital",
+        "type": "Artwork"
+    }
+]

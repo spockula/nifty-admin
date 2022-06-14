@@ -1,0 +1,14 @@
+[
+  {
+    "name": "Artwork",
+    "value": "artwork"
+    },
+    {
+        "name": "Music",
+        "value": "musicRight"
+    },
+    {
+        "name": "Movies and Animations",
+        "value": "movieRight"
+    }
+]
