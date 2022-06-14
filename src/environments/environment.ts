@@ -1,9 +1,17 @@
 // This file can be replaced during build by using the `fileReplacements` array.
-// `ng build` replaces `environment.ts` with `environment.prod.ts`.
+// `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
-export const environment = {
-  production: false
+import { AppEnvironment } from 'src/app/interfaces/app-environment.interface';
+
+export const environment: AppEnvironment = {
+  production: true,
+  baseApiUrl: 'https://lb.xendbit.net/api/yasuke/',
+  extraUrl: 'https://lb.xendbit.net/yasuke-server/',
+  icoUrl: 'https://lb.xendbit.net/api/ico/whitelist/',
+  security: {
+    allowedOrigins: 'https://niftyrow.io/'
+  }
 };
 
 /*

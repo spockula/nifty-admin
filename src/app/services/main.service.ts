@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { IArtwork, meta } from '../interfaces/presentation.interface';
 import { BehaviorSubject, map } from 'rxjs';
-import { baseUrl, niftyKey } from '../config/main.config.const';
+import { niftyKey } from '../config/main.config.const';
+import { environment } from 'src/environments/environment';
 import * as artWorkJson from 'src/assets/data/artwork.json';
 
 @Injectable({
@@ -27,7 +28,7 @@ export class MainService {
     headers = headers.append('Content-Type', 'application/json');
     headers = headers.append('api-key', niftyKey);
     headers = headers.append('chain', this.chain);
-    this.httpClient.get<IArtwork []>(`${baseUrl.mainUrl}list-tokens?page=${page}&limit=${limit}`, {headers}).pipe(map((res: any) => {
+    this.httpClient.get<IArtwork []>(`${environment.baseApiUrl}list-tokens?page=${page}&limit=${limit}`, {headers}).pipe(map((res: any) => {
       res['data']['items'].forEach((item: any) => {
         this.dataStore.artworks.push({
           id: item.id,
@@ -78,7 +79,7 @@ export class MainService {
     headers = headers.append('Content-Type', 'application/json');
     headers = headers.append('api-key', niftyKey);
     headers = headers.append('chain', this.chain);
-    this.httpClient.get<IArtwork []>(`${baseUrl.mainUrl}list-tokens?page=${page}&limit=${limit}`, {headers}).pipe(map((res: any) => {
+    this.httpClient.get<IArtwork []>(`${environment.baseApiUrl}list-tokens?page=${page}&limit=${limit}`, {headers}).pipe(map((res: any) => {
       res['data']['items'].forEach((item: any) => {
         this.dataStore.artworks.push({
           id: item.id,
@@ -144,7 +145,7 @@ export class MainService {
     headers = headers.append('Content-Type', 'application/json');
     headers = headers.append('api-key', niftyKey);
     headers = headers.append('chain', this.chain);
-    return this.httpClient.post(`${baseUrl.mainUrl}${tokenId}/toggle-approved`, {}, {headers})
+    return this.httpClient.post(`${environment.baseApiUrl}${tokenId}/toggle-approved`, {}, {headers})
   }
 
 }

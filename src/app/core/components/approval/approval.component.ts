@@ -29,8 +29,8 @@ export class ApprovalComponent implements OnInit {
   }
 
   ngOnChanges(changes:SimpleChanges) {
-    this.ngxService.start();
     if (changes['artworkArray'] && this.artworkArray !== undefined) {
+      this.ngxService.start();
       if (this.artworkArray !== undefined) {
         this.unApproved = this.artworkArray;
         this.ngxService.stop();

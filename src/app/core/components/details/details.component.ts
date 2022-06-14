@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 export class DetailsComponent implements OnInit {
   artwork: any;
   constructor(
-    private mainService: MainService, 
+    private mainService: MainService,
     private ngxService: NgxUiLoaderService,
     public toast: HotToastService,
     public router: Router) { }
@@ -29,7 +29,9 @@ export class DetailsComponent implements OnInit {
       if (res.status === 'success') {
         this.ngxService.stop();
         this.toast.success('Token successfully approved.')
-        this.router.navigate(['/admin'])
+        this.router.navigate(['/admin']).then(() => {
+          window.location.reload();
+        });;
       }
     }, err => {
       this.toast.error('There was an error while trying to approve this token.')
