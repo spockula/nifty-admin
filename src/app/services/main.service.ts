@@ -2,8 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { IArtwork, meta } from '../interfaces/presentation.interface';
 import { BehaviorSubject, map } from 'rxjs';
-import { niftyKey } from '../config/main.config.const';
-import { environment } from 'src/environments/environment';
+import { environment, niftyKey } from 'src/environments/environment';
 import * as artWorkJson from 'src/assets/data/artwork.json';
 
 @Injectable({
