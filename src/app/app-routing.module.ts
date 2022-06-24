@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes, ExtraOptions } from '@angular/router';
 import { LoginComponent } from './pages/login/login.component';
 import { AdminComponent } from './pages/admin/admin.component';
 import { HomeComponent } from './core/components/home/home.component';
@@ -23,6 +23,11 @@ const routes: Routes = [
     component: DetailsComponent
   }
 ];
+const routerOptions: ExtraOptions = {
+    useHash: false,
+    scrollPositionRestoration: 'top',
+    relativeLinkResolution: 'legacy'
+};
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

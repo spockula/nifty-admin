@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-
+import { LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { NgxUiLoaderModule } from "ngx-ui-loader";
 import { AppComponent } from './app.component';
@@ -36,7 +36,7 @@ import { DetailsComponent } from './core/components/details/details.component';
     NgxUiLoaderModule,
     FormsModule
   ],
-  providers: [MainService],
+  providers: [MainService, {provide: LocationStrategy, useClass: PathLocationStrategy}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
