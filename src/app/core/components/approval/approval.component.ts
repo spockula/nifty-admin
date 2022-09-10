@@ -22,8 +22,11 @@ export class ApprovalComponent implements OnInit {
   artworks: IArtwork [] | undefined;
   search: any;
   @Input() public artworkArray: IArtwork [] | undefined;
-  constructor(private mainService: MainService, private router: Router,
-    private ngxService: NgxUiLoaderService) { }
+  constructor(
+    private mainService: MainService,
+    private router: Router,
+    private ngxService: NgxUiLoaderService
+    ) { }
 
   ngOnInit(): void {
   }
@@ -83,7 +86,6 @@ export class ApprovalComponent implements OnInit {
   }
 
   handleSearch(event: any) {
-    console.log('hey', event.target.value)
     let search = event.target.value;
     if (search !== '') {
       this.unApproved = this.artworkArray?.filter((res: any) => res.symbol.toLowerCase().includes(search.toLowerCase()));

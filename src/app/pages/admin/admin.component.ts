@@ -8,7 +8,7 @@ import { NgxUiLoaderService } from 'ngx-ui-loader';
   styleUrls: ['./admin.component.scss']
 })
 export class AdminComponent implements OnInit {
-  selectedTab: string = '';
+  selectedTab: string = 'approval';
   artworks: any;
   constructor(private mainService: MainService, private ngxService: NgxUiLoaderService) { }
 
@@ -21,6 +21,9 @@ export class AdminComponent implements OnInit {
     }, err => {
       this.ngxService.stop();
     });
+    this.mainService.getContactUs().subscribe((res: any) => {
+      console.log('here we are', res)
+    })
   }
 
   switchTabs(selectedTab: string) {

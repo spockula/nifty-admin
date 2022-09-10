@@ -2,8 +2,8 @@
   <div class="w-full pt-3 pr-5">
     <div class="flex flex-row">
       <div class="w-full md:w-3/4 lg:w-3/4 pt-10">
-        <p class="header-text">Approve Tokens</p>
-        <p class="header-desc">You can view and approve tokens here</p>
+        <p class="header-text">View Subscribers</p>
+        <p class="header-desc">You can view and edit subscribers here</p>
       </div>
 
     </div>
@@ -32,61 +32,11 @@
             type="search"
             name="search"
             class="py-2 search w-full md:w-[473px] pl-12 placeholder-gray-700"
-            placeholder="Search by token name"
+            placeholder="Search by email"
             autocomplete="off"
             (input)="handleSearch($event)"
             [(ngModel)]="search"
           />
-        </div>
-      </span>
-      <span class="inline-block pl-5">
-        <div class="group inline-block relative">
-          <button
-            class="bg-gray-100 text-gray-700 font-semibold py-2 px-4 rounded inline-flex items-center"
-          >
-            <span class="mr-1">Select Blockchain</span>
-            <svg
-              class="fill-current h-4 w-4"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 20 20"
-            >
-              <path
-                d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
-              />
-            </svg>
-          </button>
-          <ul class="absolute hidden w-full text-gray-700 pt-1 group-hover:block">
-            <li class="">
-              <a
-              (click)="switchChain('aurora')" class="rounded-t bg-gray-100 hover:bg-gray-200 py-2 px-4 block whitespace-no-wrap"
-                >Aurora</a
-              >
-            </li>
-            <li class="">
-              <a
-              (click)="switchChain('avalanche')" class="rounded-t bg-gray-100 hover:bg-gray-200 py-2 px-4 block whitespace-no-wrap"
-                >Avalanche</a
-              >
-            </li>
-            <li class="">
-              <a
-              (click)="switchChain('bsc')" class="rounded-t bg-gray-100 hover:bg-gray-200 py-2 px-4 block whitespace-no-wrap"
-                >BSC</a
-              >
-            </li>
-            <li class="">
-              <a
-              (click)="switchChain('harmony')" class="rounded-t bg-gray-100 hover:bg-gray-200 py-2 px-4 block whitespace-no-wrap"
-                >Harmony</a
-              >
-            </li>
-            <li class="">
-              <a
-              (click)="switchChain('polygon')" class="rounded-t bg-gray-100 hover:bg-gray-200 py-2 px-4 block whitespace-no-wrap"
-                >Polygon</a
-              >
-            </li>
-          </ul>
         </div>
       </span>
     </div>
@@ -97,21 +47,17 @@
           <thead class="bg-[#FCFCFD]">
             <tr>
               <th class="px-5 py-4 text-left table-header">
-                 Token Name
+                 Email Address
               </th>
               <th class="px-5 py-4 text-left table-header">
-                 Issuer Address
-              </th>
-              <th class="px-5 py-4 text-left table-header">
-                 Token ID
-              </th>
-              <th class="px-5 py-4 text-left table-header">
-                Date Issued
+                 Date Subscribed
               </th>
               <th class="px-5 py-4 text-left table-header">
                 STATUS
               </th>
-              <!-- <th class="px-5 py-4 table-header">ACTION</th> -->
+              <th class="px-5 py-4 text-left table-header">
+                ACTION
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -123,7 +69,7 @@
                 <span></span>
               </div>
             </tr>
-            <tr *ngFor="let option of unApproved; let i = index; trackBy: byId;">
+            <tr *ngFor="let option of subscriberArray; let i = index;">
               <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm cursor-pointer">
                 <p class="table-text" (click)="goToDetails(option)">
                   {{ option.symbol }}
@@ -151,7 +97,7 @@
               >
               <p class="table-text"> Approved </p>
               </td>
-              <!-- <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+              <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                 <div class="md:absolute">
                   <button
                     type="button"
@@ -166,15 +112,14 @@
                   >
                     <div class="edit-div">
                       <button
-                        (click)="approveToken(option.tokenId)"
                         class="button"
                       >
-                        Approve
+                        unsubscribe
                       </button>
                     </div>
                     <div class="edit-div">
                       <button class="button">
-                        Reject
+                        subscribe
                       </button>
                     </div>
                     <button
@@ -184,7 +129,7 @@
                     </button>
                   </div>
                 </div>
-              </td> -->
+              </td>
             </tr>
           </tbody>
         </table>

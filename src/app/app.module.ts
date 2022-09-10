@@ -15,6 +15,8 @@ import { ApprovalComponent } from './core/components/approval/approval.component
 import { EllipsisComponent } from './core/components/ellipsis/ellipsis.component';
 import { MainService } from './services/main.service';
 import { DetailsComponent } from './core/components/details/details.component';
+import { ContactMessagesComponent } from './core/components/contact-messages/contact-messages.component';
+import { SubscribersComponent } from './core/components/subscribers/subscribers.component';
 
 
 @NgModule({
@@ -28,6 +30,8 @@ import { DetailsComponent } from './core/components/details/details.component';
     ApprovalComponent,
     EllipsisComponent,
     DetailsComponent,
+    ContactMessagesComponent,
+    SubscribersComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,6 +41,10 @@ import { DetailsComponent } from './core/components/details/details.component';
     FormsModule
   ],
   providers: [MainService, {provide: LocationStrategy, useClass: PathLocationStrategy}],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports: [
+    ContactMessagesComponent,
+    SubscribersComponent
+  ]
 })
 export class AppModule { }

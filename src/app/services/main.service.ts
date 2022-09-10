@@ -147,4 +147,20 @@ export class MainService {
     return this.httpClient.post(`${environment.baseApiUrl}${tokenId}/toggle-approved`, {}, {headers})
   }
 
+  getSubscribers() {
+    let headers: HttpHeaders = new HttpHeaders();
+    headers = headers.append('Content-Type', 'application/json');
+    headers = headers.append('api-key', niftyKey);
+    headers = headers.append('chain', this.chain);
+    return this.httpClient.get(`${environment.baseApiUrl}contact/subscribers`, {headers})
+  }
+
+  getContactUs() {
+    let headers: HttpHeaders = new HttpHeaders();
+    headers = headers.append('Content-Type', 'application/json');
+    headers = headers.append('api-key', niftyKey);
+    headers = headers.append('chain', this.chain);
+    return this.httpClient.get(`${environment.baseApiUrl}contact/messages`, {headers})
+  }
+
 }

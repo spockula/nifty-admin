@@ -1,21 +1,34 @@
 <div class=" w-full min-h-screen md:flex">
     <aside class="md:py-32 px-8 cursor-pointer">
-        <div class="md:w-44 bg-white p-4">
+        <div class="md:w-48 bg-white p-4">
             <ul class="flex flex-col space-y-6 mt-14 py-6">
-                <li [ngClass]="{'sidebar-text text-try transition duration-500': selectedTab === 'approval' || selectedTab === '',
-                'not-active transition duration-500' : selectedTab === 'all-users' || selectedTab == 'add-admin' || selectedTab === 'activity' }" (click)="switchTabs('approval')"> <span
-                     class="ml-3"> Approve Tokens </span> </li>
+                <li [ngClass]="{'sidebar-text text-try transition duration-500': selectedTab === 'approval',
+                'not-active transition duration-500' : selectedTab !== 'approval' }" (click)="switchTabs('approval')"> <span
+                     class="ml-3"> Approve Tokens </span>
+                </li>
+                <li [ngClass]="{'sidebar-text text-try transition duration-500': selectedTab === 'contact-messages',
+                'not-active transition duration-500' : selectedTab !== 'contact-messages' }" (click)="switchTabs('contact-messages')"> <span
+                    class="ml-3 flex"> Contact Messages </span>
+                </li>
+                <li [ngClass]="{'sidebar-text text-try transition duration-500': selectedTab === 'subscribers',
+                'not-active transition duration-500' : selectedTab !== 'subscribers' }" (click)="switchTabs('subscribers')"> <span
+                    class="ml-3 flex"> Subscribers </span>
+                </li>
                 <li [ngClass]="{'sidebar-text text-try transition duration-500': selectedTab === 'add-admin',
-                'not-active transition duration-500' : selectedTab === 'all-users' || selectedTab === 'approval' || selectedTab === 'activity' || selectedTab === '' }" (click)="switchTabs('add-admin')"> <span
-                     class="ml-3"> Add New Admin  </span> </li>
+                'not-active transition duration-500' : selectedTab !== 'add-admin' }" (click)="switchTabs('add-admin')"> <span
+                     class="ml-3"> Add New Admin  </span>
+                </li>
                 <li [ngClass]="{'sidebar-text text-try transition duration-500': selectedTab === 'activity',
-                'not-active transition duration-500' : selectedTab === 'all-users' || selectedTab === 'add-admin' || selectedTab === 'approval' || selectedTab === '' }" (click)="switchTabs('activity')"> <span
-                     class="ml-3"> Activity Log </span></li>
+                'not-active transition duration-500' : selectedTab !== 'activity' }" (click)="switchTabs('activity')"> <span
+                     class="ml-3"> Activity Log </span>
+                </li>
             </ul>
         </div>
     </aside>
     <main class="md:flex-1 p-6 md:px-8">
         <app-approval [artworkArray]="this.artworks" *ngIf="selectedTab === 'approval' || selectedTab === ''"></app-approval>
+        <app-contact-messages  *ngIf="selectedTab === 'contact-messages'"></app-contact-messages>
+        <app-subscribers *ngIf="selectedTab === 'subscribers'"></app-subscribers>
         <!-- <app-all-users *ngIf="selectedTab === 'All-users' || selectedTab === ''"></app-all-users>
         <app-user-roles *ngIf="selectedTab === 'User-roles'"></app-user-roles>
         <app-activity *ngIf="selectedTab === 'Activity'"></app-activity> -->
