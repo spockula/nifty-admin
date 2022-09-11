@@ -152,7 +152,7 @@ export class MainService {
     headers = headers.append('Content-Type', 'application/json');
     headers = headers.append('api-key', niftyKey);
     headers = headers.append('chain', this.chain);
-    return this.httpClient.get(`${environment.baseApiUrl}contact/subscribers`, {headers})
+    return this.httpClient.get(`${environment.extraUrl}contact/subscribers`, {headers})
   }
 
   getContactUs() {
@@ -160,7 +160,7 @@ export class MainService {
     headers = headers.append('Content-Type', 'application/json');
     headers = headers.append('api-key', niftyKey);
     headers = headers.append('chain', this.chain);
-    return this.httpClient.get(`${environment.baseApiUrl}contact/messages`, {headers})
+    return this.httpClient.get(`${environment.extraUrl}contact/messages`, {headers})
   }
 
 }
