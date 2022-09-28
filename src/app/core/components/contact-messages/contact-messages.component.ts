@@ -10,7 +10,7 @@ import { NgxUiLoaderService } from 'ngx-ui-loader';
 })
 export class ContactMessagesComponent implements OnInit {
   search: any;
-  @Input() public messagesArray: any;
+  messagesArray: any;
   pageLoaded: boolean = false;
   showMe: any;
   ellipseIndex: number = 0;
@@ -27,16 +27,19 @@ export class ContactMessagesComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-  }
-
-  ngOnChanges(changes:SimpleChanges) {
-    if (changes['messagesArray'] && this.messagesArray !== undefined) {
-      this.ngxService.start();
-      if (this.messagesArray !== undefined) {
+    this.ngxService.start();
+    this.mainService.getContactUs().subscribe((res: any) => {
+      console.log('here we are tr', res)
+      if (res.status === 'success') {
+        this.messagesArray = res.data
+        this.ngxService.stop();
+      } else {
         this.ngxService.stop();
       }
-    }
 
+    }, err => {
+      this.ngxService.stop();
+    })
   }
 
   nextPage(number: number) {
@@ -50,6 +53,11 @@ export class ContactMessagesComponent implements OnInit {
 
   }
 
+  toggle(id: number) {
+    this.showMe = !this.showMe;
+    // this.ellipseIndex = id;
+  }
+
   goToDetails(artwork: any) {
     localStorage.setItem('artwork', JSON.stringify(artwork));
     this.router.navigate(['/details/' + artwork.tokenId])
@@ -58,7 +66,7 @@ export class ContactMessagesComponent implements OnInit {
   handleSearch(event: any) {
     let search = event.target.value;
     if (search !== '') {
-      // this.unApproved = this.artworkArray?.filter((res: any) => res.symbol.toLowerCase().includes(search.toLowerCase()));
+      this.messagesArray = this.messagesArray?.filter((res: any) => res.email.toLowerCase().includes(search.toLowerCase()));
     }
   }
 

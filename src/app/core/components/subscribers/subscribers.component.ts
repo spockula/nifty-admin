@@ -10,7 +10,7 @@ import { MainService } from 'src/app/services/main.service';
 })
 export class SubscribersComponent implements OnInit {
   search: any;
-  @Input() public subscriberArray: any;
+  subscriberArray: any;
   pageLoaded: boolean = false;
   showMe: any;
   ellipseIndex: number = 0;
@@ -26,15 +26,14 @@ export class SubscribersComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-  }
-
-  ngOnChanges(changes:SimpleChanges) {
-    if (changes['messagesArray'] && this.subscriberArray !== undefined) {
-      this.ngxService.start();
-      if (this.subscriberArray !== undefined) {
-        this.ngxService.stop();
-      }
-    }
+    this.ngxService.start();
+    this.mainService.getSubscribers().subscribe((res: any) => {
+      this.subscriberArray = res.data;
+      this.ngxService.stop();
+    }, err => {
+      this.ngxService.stop();
+      console.log('there was an error', err)
+    })
   }
 
   nextPage(number: number) {
@@ -61,7 +60,9 @@ export class SubscribersComponent implements OnInit {
   handleSearch(event: any) {
     let search = event.target.value;
     if (search !== '') {
-      // this.unApproved = this.artworkArray?.filter((res: any) => res.symbol.toLowerCase().includes(search.toLowerCase()));
+      this.subscriberArray = this.subscriberArray?.filter((res: any) => res.email.toLowerCase().includes(search.toLowerCase()));
+    } else {
+      this.subscriberArray = this.subscriberArray;
     }
   }
 

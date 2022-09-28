@@ -21,7 +21,7 @@ export class ApprovalComponent implements OnInit {
   unApproved: IArtwork [] | undefined;
   artworks: IArtwork [] | undefined;
   search: any;
-  @Input() public artworkArray: IArtwork [] | undefined;
+  artworkArray: IArtwork [] | undefined;
   constructor(
     private mainService: MainService,
     private router: Router,
@@ -29,6 +29,14 @@ export class ApprovalComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
+    this.mainService.returnArtwork().subscribe((res: any) => {
+      if (res !== null) {
+        console.log('got here', res);
+        this.unApproved = res;
+      }
+    }, err => {
+      this.ngxService.stop();
+    });
   }
 
   ngOnChanges(changes:SimpleChanges) {

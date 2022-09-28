@@ -55,9 +55,6 @@
               <th class="px-5 py-4 text-left table-header">
                 STATUS
               </th>
-              <th class="px-5 py-4 text-left table-header">
-                ACTION
-              </th>
             </tr>
           </thead>
           <tbody>
@@ -71,31 +68,17 @@
             </tr>
             <tr *ngFor="let option of subscriberArray; let i = index;">
               <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm cursor-pointer">
-                <p class="table-text" (click)="goToDetails(option)">
-                  {{ option.symbol }}
+                <p class="table-text">
+                  {{ option.email }}
                 </p>
               </td>
               <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                 <p class="table-text">
-                  {{option.creator.username}}
+                  {{option.created_at | date}}
                 </p>
               </td>
               <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                <p class="table-text"> {{option.tokenId}} </p>
-              </td>
-              <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                <p class="table-text"> {{option.dateIssued | date: 'dd-MM-YYYY'}} </p>
-              </td>
-              <td
-              *ngIf="option.isApproved === false"
-                class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                <p class="table-text"> Unapproved </p>
-              </td>
-              <td
-                *ngIf="option.isApproved === true"
-                class="px-5 py-5 border-b border-gray-200 bg-white text-sm"
-              >
-              <p class="table-text"> Approved </p>
+                <p class="table-text"> {{option.status}} </p>
               </td>
               <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                 <div class="md:absolute">

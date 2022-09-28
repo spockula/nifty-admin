@@ -17,6 +17,8 @@ import { MainService } from './services/main.service';
 import { DetailsComponent } from './core/components/details/details.component';
 import { ContactMessagesComponent } from './core/components/contact-messages/contact-messages.component';
 import { SubscribersComponent } from './core/components/subscribers/subscribers.component';
+import { AllUsersComponent } from './core/components/all-users/all-users.component';
+import { NewAdminComponent } from './core/components/new-admin/new-admin.component';
 
 
 @NgModule({
@@ -32,6 +34,8 @@ import { SubscribersComponent } from './core/components/subscribers/subscribers.
     DetailsComponent,
     ContactMessagesComponent,
     SubscribersComponent,
+    AllUsersComponent,
+    NewAdminComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,7 +48,9 @@ import { SubscribersComponent } from './core/components/subscribers/subscribers.
   bootstrap: [AppComponent],
   exports: [
     ContactMessagesComponent,
-    SubscribersComponent
+    SubscribersComponent,
+    AllUsersComponent,
+    NewAdminComponent
   ]
 })
 export class AppModule { }

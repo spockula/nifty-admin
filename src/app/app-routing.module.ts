@@ -12,15 +12,18 @@ const routes: Routes = [
   },
   {
     path: 'admin',
-    component: AdminComponent
+    component: AdminComponent,
+    data: { showHeader: true }
   },
   {
     path: 'login',
-    component: LoginComponent
+    component: LoginComponent,
+    data: { showHeader: false }
   },
   {
     path: 'details/:asset',
-    component: DetailsComponent
+    component: DetailsComponent,
+    data: { showHeader: true }
   }
 ];
 const routerOptions: ExtraOptions = {

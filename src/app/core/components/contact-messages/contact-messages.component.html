@@ -32,7 +32,7 @@
             type="search"
             name="search"
             class="py-2 search w-full md:w-[473px] pl-12 placeholder-gray-700"
-            placeholder="Search by subject"
+            placeholder="Search by email"
             autocomplete="off"
             (input)="handleSearch($event)"
             [(ngModel)]="search"
@@ -55,9 +55,9 @@
               <th class="px-5 py-4 text-left table-header">
                 Message
               </th>
-              <th class="px-5 py-4 text-left table-header">
+              <!-- <th class="px-5 py-4 text-left table-header">
                 Date
-              </th>
+              </th> -->
             </tr>
           </thead>
           <tbody>
@@ -72,32 +72,21 @@
             <tr *ngFor="let option of messagesArray; let i = index;">
               <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm cursor-pointer">
                 <p class="table-text" (click)="goToDetails(option)">
-                  {{ option.symbol }}
+                  {{ option.email }}
                 </p>
               </td>
               <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                 <p class="table-text">
-                  {{option.creator.username}}
+                  {{option.subject}}
                 </p>
               </td>
               <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                <p class="table-text"> {{option.tokenId}} </p>
-              </td>
-              <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                <p class="table-text"> {{option.dateIssued | date: 'dd-MM-YYYY'}} </p>
-              </td>
-              <td
-              *ngIf="option.isApproved === false"
-                class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                <p class="table-text"> Unapproved </p>
-              </td>
-              <td
-                *ngIf="option.isApproved === true"
-                class="px-5 py-5 border-b border-gray-200 bg-white text-sm"
-              >
-              <p class="table-text"> Aapproved </p>
+                <p class="table-text"> {{option.message}} </p>
               </td>
               <!-- <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                <p class="table-text"> {{option.dateIssued | date: 'dd-MM-YYYY'}} </p>
+              </td> -->
+              <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                 <div class="md:absolute">
                   <button
                     type="button"
@@ -111,16 +100,8 @@
                     *ngIf="showMe && ellipseIndex === i"
                   >
                     <div class="edit-div">
-                      <button
-                        (click)="approveToken(option.tokenId)"
-                        class="button"
-                      >
-                        Approve
-                      </button>
-                    </div>
-                    <div class="edit-div">
                       <button class="button">
-                        Reject
+                        Export
                       </button>
                     </div>
                     <button
@@ -130,7 +111,7 @@
                     </button>
                   </div>
                 </div>
-              </td> -->
+              </td>
             </tr>
           </tbody>
         </table>

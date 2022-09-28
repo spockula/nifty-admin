@@ -1,0 +1,259 @@
+<body class="bg-white">
+  <div class="w-full pt-3 pr-5">
+    <div class="flex flex-row">
+      <div class="w-full md:w-3/4 lg:w-3/4 pt-10">
+        <p class="header-text">View/Edit Admin</p>
+        <p class="header-desc">You can view and add admins here</p>
+      </div>
+
+    </div>
+    <div class="pb-6 flex flex-row z-0 justify-between">
+      <span>
+        <div class="relative text-gray-600">
+          <span class="absolute inset-y-0 left-0 flex items-center pl-2">
+            <button
+              type="submit"
+              class="p-1 focus:outline-none focus:shadow-outline"
+            >
+              <svg
+                fill="black"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                class="w-6 h-6"
+              >
+                <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+              </svg>
+            </button>
+          </span>
+          <input
+            type="search"
+            name="search"
+            class="py-2 search w-full md:w-[473px] pl-12 placeholder-gray-700"
+            placeholder="Search by first/last name"
+            autocomplete="off"
+            (input)="handleSearch($event)"
+            [(ngModel)]="search"
+          />
+        </div>
+      </span>
+      <span class="inline-block pl-5">
+        <div class="flex items-center justify-center h-full">
+          <button class="py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-700" (click)="toggleAdminModal()">Create New Admin</button>
+        </div>
+        <div class="fixed z-10 overflow-y-auto top-0 w-full left-0 hidden" id="modal">
+          <div class="flex items-center justify-center min-height-100vh pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+            <div class="fixed inset-0 transition-opacity">
+              <div class="absolute inset-0 bg-gray-900 opacity-75"> </div>
+            </div>
+            <span class="hidden sm:inline-block sm:align-middle sm:h-screen">&#8203;</span>
+            <div class="inline-block align-center bg-white rounded-lg text-left overflow-y-scroll shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full" role="dialog" aria-modal="true" aria-labelledby="modal-headline">
+              <div class="max-w-2xl mx-auto bg-white p-16">
+                <form>
+                  <div class="grid gap-6 mb-6 lg:grid-cols-2">
+                      <div>
+                          <label for="first_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">First name</label>
+                          <input
+                          type="text" id="first_name"
+                          [(ngModel)]="firstName"
+                          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                          placeholder="John" required>
+                      </div>
+                      <div>
+                          <label for="last_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Last name</label>
+                          <input
+                          type="text" id="last_name"
+                          [(ngModel)]="lastName"
+                          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                          placeholder="Doe" required>
+                      </div>
+                      <div>
+                          <label for="username" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Username</label>
+                          <input
+                          type="text" id="username"
+                          [(ngModel)]="username"
+                          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                          placeholder="Flowbite" required>
+                      </div>
+                      <div>
+                          <label for="phone" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Email</label>
+                          <input
+                          type="email" id="email"
+                          [(ngModel)]="email"
+                          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                          placeholder="person@email.com" required>
+                      </div>
+                  </div>
+                  <div class="mb-6">
+                      <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Password</label>
+                      <input
+                      type="password" id="password"
+                      [(ngModel)]="password"
+                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      placeholder="•••••••••" required>
+                  </div>
+                  <div class="mb-6">
+                      <label for="confirm_password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Confirm password</label>
+                      <input
+                      type="password" id="confirm_password"
+                      [(ngModel)]="confirmPassword"
+                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      placeholder="•••••••••" required>
+                  </div>
+                  <div class="mb-6">
+                    <label for="walletAddress" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Wallet Address</label>
+                    <input
+                    type="text" id="walletAddress"
+                    [(ngModel)]="walletAddress"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="wallet address" required>
+                  </div>
+                  <div class="mb-6">
+                    <label for="webUrl" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Web URL </label>
+                    <input
+                    type="text" id="webUrl"
+                    [(ngModel)]="webUrl"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="web url" required>
+                  </div>
+                  <div class="mb-6">
+                    <label for="about" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">About </label>
+                    <input
+                    type="textarea" id="about"
+                    [(ngModel)]="about"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="about" required>
+                  </div>
+                  <!-- <div class="flex items-start mb-6">
+                      <div class="flex items-center h-5">
+                      <input id="remember" type="checkbox" value="" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800" required>
+                      </div>
+                      <label for="remember" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-400">I agree with the <a href="#" class="text-blue-600 hover:underline dark:text-blue-500">terms and conditions</a>.</label>
+                  </div> -->
+                  <div class="flex gap-4 justify-between">
+                    <button (click)="toggleAdminModal()" type="submit" class="text-black bg-gray-400 hover:bg-blue-400 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Cancel</button>
+                    <button (click)="submitAdmin()" type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+                  </div>
+              </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </span>
+    </div>
+    <div class="container">
+      <div class="py-8">
+        <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
+          <div
+            class="inline-block min-w-full shadow-md rounded-lg overflow-hidden"
+          >
+            <table class="min-w-full leading-normal">
+              <thead>
+                <tr>
+                  <th
+                  class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider"
+                >
+                </th>
+                  <th
+                    class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider"
+                  >
+                    First Name
+                  </th>
+                  <th
+                    class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider"
+                  >
+                    Last Name
+                  </th>
+                  <th
+                    class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider"
+                  >
+                    Username
+                  </th>
+                  <th
+                    class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider"
+                  >
+                    Email Address
+                  </th>
+                  <th
+                    class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider"
+                  >
+                    Status
+                  </th>
+                  <th
+                    class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100"
+                  >
+
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                    <div class="flex">
+                      <div class="flex-shrink-0 w-10 h-10">
+                        <img
+                          class="w-full h-full rounded-full"
+                          src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.2&w=160&h=160&q=80"
+                          alt=""
+                        />
+                      </div>
+                      <!-- <div class="ml-3">
+                        <p class="text-gray-900 whitespace-no-wrap">
+                          Molly Sanders
+                        </p>
+                        <p class="text-gray-600 whitespace-no-wrap">000004</p>
+                      </div> -->
+                    </div>
+                  </td>
+                  <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                    <p class="text-gray-900 whitespace-no-wrap"> Molly</p>
+                  </td>
+                  <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                    <p class="text-gray-900 whitespace-no-wrap">Sanders</p>
+                  </td>
+                  <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                    <p class="text-gray-900 whitespace-no-wrap">Moskey</p>
+                  </td>
+                  <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                    <p class="text-gray-900 whitespace-no-wrap">mollysanders@gmail.com</p>
+                    <!-- <p class="text-gray-600 whitespace-no-wrap">Due in 3 days</p> -->
+                  </td>
+                  <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                    <span
+                      class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight"
+                    >
+                      <span
+                        aria-hidden
+                        class="absolute inset-0 bg-green-200 opacity-50 rounded-full"
+                      ></span>
+                      <span class="relative">Active</span>
+                    </span>
+                  </td>
+                  <td
+                    class="px-5 py-5 border-b border-gray-200 bg-white text-sm text-right"
+                  >
+                    <button
+                      type="button"
+                      class="inline-block text-gray-500 hover:text-gray-700"
+                    >
+                      <svg
+                        class="inline-block h-6 w-6 fill-current"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          d="M12 6a2 2 0 110-4 2 2 0 010 4zm0 8a2 2 0 110-4 2 2 0 010 4zm-2 6a2 2 0 104 0 2 2 0 00-4 0z"
+                        />
+                      </svg>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

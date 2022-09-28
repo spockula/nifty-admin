@@ -10,20 +10,13 @@ import { NgxUiLoaderService } from 'ngx-ui-loader';
 export class AdminComponent implements OnInit {
   selectedTab: string = 'approval';
   artworks: any;
+  loggedInUser: any;
   constructor(private mainService: MainService, private ngxService: NgxUiLoaderService) { }
 
   ngOnInit(): void {
     this.mainService.fetchUnapproved(1, 16)
-    this.mainService.returnArtwork().subscribe((res: any) => {
-      if (res !== null) {
-        this.artworks = res;
-      }
-    }, err => {
-      this.ngxService.stop();
-    });
-    this.mainService.getContactUs().subscribe((res: any) => {
-      console.log('here we are', res)
-    })
+    this.loggedInUser = this.mainService.getLoggedInUserData()
+    console.log(this.mainService.getLoggedInUserData());
   }
 
   switchTabs(selectedTab: string) {
