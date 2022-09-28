@@ -31,7 +31,6 @@ export class ApprovalComponent implements OnInit {
   ngOnInit(): void {
     this.mainService.returnArtwork().subscribe((res: any) => {
       if (res !== null) {
-        console.log('got here', res);
         this.unApproved = res;
       }
     }, err => {

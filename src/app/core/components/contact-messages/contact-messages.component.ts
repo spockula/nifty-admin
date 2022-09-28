@@ -29,7 +29,6 @@ export class ContactMessagesComponent implements OnInit {
   ngOnInit(): void {
     this.ngxService.start();
     this.mainService.getContactUs().subscribe((res: any) => {
-      console.log('here we are tr', res)
       if (res.status === 'success') {
         this.messagesArray = res.data
         this.ngxService.stop();

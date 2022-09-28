@@ -16,7 +16,6 @@ export class AdminComponent implements OnInit {
   ngOnInit(): void {
     this.mainService.fetchUnapproved(1, 16)
     this.loggedInUser = this.mainService.getLoggedInUserData()
-    console.log(this.mainService.getLoggedInUserData());
   }
 
   switchTabs(selectedTab: string) {

@@ -15,7 +15,6 @@ export class MainService {
   userToken: string = '';
   private dataStore: { artworks: IArtwork[] } = { artworks: [] }; // store our data in memory
   constructor(public httpClient: HttpClient) {
-    console.log(this.userToken)
     this.userToken = this.getLoggedInUserData().access_token;
     if (!localStorage.getItem('currentChain') || localStorage.getItem('currentChain') === undefined || localStorage.getItem('currentChain') === null) {
       this.chain = 'avalanche';
