@@ -191,7 +191,7 @@ export class MainService {
   }
 
   getLoggedInUserData() {
-     var storedUser = JSON.parse(localStorage.getItem("user")|| '');
+     var storedUser = JSON.parse(localStorage.getItem("user")|| '{}');
      return storedUser
   }
 
