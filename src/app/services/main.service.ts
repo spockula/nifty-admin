@@ -223,4 +223,24 @@ export class MainService {
 
   }
 
+  addSlider(sliderImage: string, sliderName: string) {
+    let headers: HttpHeaders = new HttpHeaders();
+    headers = headers.append('Content-Type', 'application/json');
+    headers = headers.append('api-key', niftyKey);
+    headers = headers.append('Authorization', 'Bearer ' + this.userToken);
+    var user = JSON.stringify({
+      [`${sliderName}`]: sliderImage
+    });
+    return this.httpClient.put(`${environment.extraUrl}admin/update-slider-image`, user, {headers})
+
+  }
+
+  getSlider() {
+    let headers: HttpHeaders = new HttpHeaders();
+    headers = headers.append('Content-Type', 'application/json');
+    headers = headers.append('api-key', niftyKey);
+    headers = headers.append('Authorization', 'Bearer ' + this.userToken);
+    return this.httpClient.get(`${environment.extraUrl}admin/slider-images`, {headers})
+  }
+
 }

@@ -18,6 +18,10 @@
                 'not-active transition duration-500' : selectedTab !== 'subscribers' }" (click)="switchTabs('subscribers')"> <span
                     class="ml-3 flex"> Subscribers </span>
                 </li>
+                <li *ngIf="this.loggedInUser.role === 'super-admin'" [ngClass]="{'sidebar-text text-try transition duration-500': selectedTab === 'sliders',
+                'not-active transition duration-500' : selectedTab !== 'sliders' }" (click)="switchTabs('sliders')"> <span
+                    class="ml-3 flex"> Update Sliders </span>
+                </li>
                 <li *ngIf="this.loggedInUser.role === 'super-admin'" [ngClass]="{'sidebar-text text-try transition duration-500': selectedTab === 'add-admin',
                 'not-active transition duration-500' : selectedTab !== 'add-admin' }" (click)="switchTabs('add-admin')"> <span
                      class="ml-3"> Add New Admin  </span>
@@ -35,8 +39,6 @@
         <app-subscribers *ngIf="selectedTab === 'subscribers'"></app-subscribers>
         <app-new-admin *ngIf="selectedTab === 'add-admin'"></app-new-admin>
         <app-all-users *ngIf="selectedTab === 'all-users'"></app-all-users>
-        <!-- <app-all-users *ngIf="selectedTab === 'All-users' || selectedTab === ''"></app-all-users>
-        <app-user-roles *ngIf="selectedTab === 'User-roles'"></app-user-roles>
-        <app-activity *ngIf="selectedTab === 'Activity'"></app-activity> -->
+        <app-sliders *ngIf="selectedTab === 'sliders'"></app-sliders>
     </main>
 </div>

@@ -19,6 +19,7 @@ import { ContactMessagesComponent } from './core/components/contact-messages/con
 import { SubscribersComponent } from './core/components/subscribers/subscribers.component';
 import { AllUsersComponent } from './core/components/all-users/all-users.component';
 import { NewAdminComponent } from './core/components/new-admin/new-admin.component';
+import { SlidersComponent } from './core/components/sliders/sliders.component';
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import { NewAdminComponent } from './core/components/new-admin/new-admin.compone
     SubscribersComponent,
     AllUsersComponent,
     NewAdminComponent,
+    SlidersComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,7 +52,8 @@ import { NewAdminComponent } from './core/components/new-admin/new-admin.compone
     ContactMessagesComponent,
     SubscribersComponent,
     AllUsersComponent,
-    NewAdminComponent
+    NewAdminComponent,
+    SlidersComponent
   ]
 })
 export class AppModule { }

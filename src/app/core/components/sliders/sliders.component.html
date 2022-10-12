@@ -1,0 +1,201 @@
+<body class="bg-white">
+  <div class="w-full pt-3 pr-5">
+    <div class="flex flex-row">
+      <div class="w-full md:w-3/4 lg:w-3/4 pt-10">
+        <p class="header-text">View/Edit Sliders</p>
+        <p class="header-desc">You can view and update app sliders here</p>
+      </div>
+
+    </div>
+    <div class="pb-6 flex flex-row z-0 justify-between">
+      <span class="inline-block pl-5">
+        <div class="fixed z-10 overflow-y-auto top-0 w-full left-0 hidden" id="modal">
+          <div class="flex items-center justify-center min-height-100vh pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+            <div class="fixed inset-0 transition-opacity">
+              <div class="absolute inset-0 bg-gray-900 opacity-75"> </div>
+            </div>
+            <span class="hidden sm:inline-block sm:align-middle sm:h-screen">&#8203;</span>
+            <div class="inline-block align-center bg-white rounded-lg text-left overflow-y-scroll shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full" role="dialog" aria-modal="true" aria-labelledby="modal-headline">
+              <div class=" mx-auto bg-white">
+                <div class="container mx-auto my-12">
+                  <div class="flex items-right justify-right h-full px-6 py-4">
+                    <p class="text-right lowercase text-base text-black" (click)="toggleAdminModal()">
+                      <label for="thumbnail" class="cursor-pointer">
+                        close
+                      </label>
+                    </p>
+                  </div>
+                  <div class="flex flex-wrap justify-center">
+                    <div class="px-4 ">
+                      <img [src]="toggledSlider" class="w-[300px] h-[300px] border-none rounded shadow align-middle"/>
+                    </div>
+                  </div>
+                  <div class="flex items-center justify-center h-full py-4" *ngIf="fileSelected">
+                    <p (click)="submitSlider()" class="text-center uppercase text-bold py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-700">
+                      <label class="cursor-pointer">
+                        Update slider
+                      </label>
+                    </p>
+                  </div>
+                  <div class="flex items-center justify-center h-full">
+                    <p (click)="uploader.click()" class="text-center uppercase py-2 px-4 text-black">
+                      <label for="thumbnail" class="cursor-pointer">
+                        change
+                      </label>
+                      <input name="thumbnail" class="hidden" #uploader type="file" accept="image/*"  (change)="check($event)">
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </span>
+    </div>
+    <div class="container">
+      <div class="py-8">
+        <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
+          <div
+            class="inline-block min-w-full shadow-md rounded-lg overflow-hidden"
+          >
+            <table class="min-w-full leading-normal">
+              <thead>
+                <tr>
+                  <th
+                  class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider"
+                >
+                </th>
+                  <th
+                    class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider"
+                  >
+                    Slider Name
+                  </th>
+                  <th
+                    class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider"
+                  >
+                    Status
+                  </th>
+                  <th
+                    class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100"
+                  >
+
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm" (click)="changeImage(sliders?.firstSlide, 'firstSlide')">
+                    <div class="flex">
+                      <div class="flex-shrink-0 w-[80px] h-[80px]">
+                        <img
+                          class="w-full h-full rounded-lg"
+                          src="{{sliders?.firstSlide}}"
+                          alt=""
+                        />
+                      </div>
+                    </div>
+                  </td>
+                  <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm" (click)="changeImage(sliders?.firstSlide, 'firstSlide')">
+                    <p class="text-gray-900 whitespace-no-wrap"> First Slide</p>
+                  </td>
+                  <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                    <span
+                      class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight"
+                    >
+                      <span
+                        aria-hidden
+                        class="absolute inset-0 bg-green-200 opacity-50 rounded-full"
+                      ></span>
+                      <span class="relative">Active</span>
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm" (click)="changeImage(sliders?.secondSlide, 'secondSlide')">
+                    <div class="flex">
+                      <div class="flex-shrink-0 w-[80px] h-[80px]">
+                        <img
+                          class="w-full h-full rounded-lg"
+                          src="{{sliders?.secondSlide}}"
+                          alt=""
+                        />
+                      </div>
+                    </div>
+                  </td>
+                  <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm" (click)="changeImage(sliders?.secondSlide, 'secondSlide')">
+                    <p class="text-gray-900 whitespace-no-wrap"> Second Slide</p>
+                  </td>
+                  <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                    <span
+                      class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight"
+                    >
+                      <span
+                        aria-hidden
+                        class="absolute inset-0 bg-green-200 opacity-50 rounded-full"
+                      ></span>
+                      <span class="relative">Active</span>
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm" (click)="changeImage(sliders?.thirdSlide, 'thirdSlide')">
+                    <div class="flex">
+                      <div class="flex-shrink-0 w-[80px] h-[80px]">
+                        <img
+                          class="w-full h-full rounded-lg"
+                          src="{{sliders?.thirdSlide}}"
+                          alt=""
+                        />
+                      </div>
+                    </div>
+                  </td>
+                  <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm" (click)="changeImage(sliders?.thirdSlide, 'thirdSlide')">
+                    <p class="text-gray-900 whitespace-no-wrap"> Third Slide</p>
+                  </td>
+                  <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                    <span
+                      class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight"
+                    >
+                      <span
+                        aria-hidden
+                        class="absolute inset-0 bg-green-200 opacity-50 rounded-full"
+                      ></span>
+                      <span class="relative">Active</span>
+                    </span>
+                  </td>
+                </tr>
+                <!-- <tr>
+                  <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm" (click)="changeImage(sliders?.thirdSlide, 'thirdSlide')">
+                    <div class="flex">
+                      <div class="flex-shrink-0 w-[80px] h-[80px]">
+                        <img
+                          class="w-full h-full rounded-lg"
+                          src="{{sliders?.thirdSlide}}"
+                          alt=""
+                        />
+                      </div>
+                    </div>
+                  </td>
+                  <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm" (click)="changeImage(sliders?.thirdSlide, 'firstSlideMobile')">
+                    <p class="text-gray-900 whitespace-no-wrap"> First Slide Mobile</p>
+                  </td>
+                  <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                    <span
+                      class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight"
+                    >
+                      <span
+                        aria-hidden
+                        class="absolute inset-0 bg-green-200 opacity-50 rounded-full"
+                      ></span>
+                      <span class="relative">Active</span>
+                    </span>
+                  </td>
+                </tr> -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
